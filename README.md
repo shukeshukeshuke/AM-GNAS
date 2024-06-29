@@ -11,7 +11,7 @@
 ```python
 # clone Github repo
 conda install git
-git clone [https://github.com/phython96/GNAS-MP.git](https://github.com/shukeshukeshuke/AM-GNAS.git)
+git clone https://github.com/shukeshukeshuke/AM-GNAS.git
 cd AM-GNAS
 
 # Install python environment

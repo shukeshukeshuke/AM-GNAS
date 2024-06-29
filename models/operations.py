@@ -14,16 +14,16 @@ OPS = {
     'V_Mean': lambda args: V_Mean(args),
     'V_Min': lambda args: V_Min(args),
     'V_Sum': lambda args: V_Sum(args),
-    'V_Sparse': lambda args: V_Sparse(args),
-    'V_Dense': lambda args: V_Dense(args),
+    'V_Coarse': lambda args: V_Coarse(args),
+    'V_Fine': lambda args: V_Fine(args),
     'V_HOP1': lambda args: V_HOP1(args),
     'V_HOP2': lambda args: V_HOP2(args),
     'V_HOP3': lambda args: V_HOP3(args),
 }
 
-First_Stage = ['V_None', 'V_I', 'V_Sparse', 'V_Dense']
+First_Stage = ['V_None', 'V_I', 'V_Coarse', 'V_Fine']
 Second_Stage = ['V_I', 'V_Mean', 'V_Sum', 'V_Max']
-Third_Stage = ['V_None', 'V_I', 'V_Sparse', 'V_Dense']
+Third_Stage = ['V_None', 'V_I', 'V_Coarse', 'V_Fine']
 K_Message = ['V_HOP1', 'V_HOP2', 'V_HOP3']
 
 
@@ -141,7 +141,7 @@ class V_Min(nn.Module):
         return G.ndata['V']
 
 
-class V_Dense(nn.Module):
+class V_Coarse(nn.Module):
 
     def __init__(self, args):
         super().__init__()
@@ -154,7 +154,7 @@ class V_Dense(nn.Module):
         return torch.sigmoid(gates) * V
 
 
-class V_Sparse(nn.Module):
+class V_Fine(nn.Module):
 
     def __init__(self, args):
         super().__init__()
